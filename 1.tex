@@ -1,0 +1,51 @@
+\documentclass{jsarticle}
+\setcounter{secnumdepth}{4}
+\usepackage[dvipdfmx]{hyperref}
+\usepackage{amsmath}
+
+\title{picoCTF2025-Writeup}
+\author{kindun}
+\date{\today}
+
+\begin{document}
+\maketitle 
+
+\section{初めに}
+本記事の内容は筆者の理解に基づいており,誤りが含まれる可能性があります.
+
+\section{Cookie Monster Secret Recipe[Web Exploitation]}
+\subsection{問題分}
+Cookie Monster has hidden his top-secret cookie recipe somewhere on his website. As an aspiring cookie detective, your mission is to uncover this delectable secret. Can you outsmart Cookie Monster and find the hidden recipe? You can access the Cookie Monster \href{http://verbal-sleep.picoctf.net:56571/}{here} and good luck
+
+\subsection{解法}
+\subsubsection{cookieに着目}
+\begin{enumerate}
+	\item ctrl+shift+iで開発者ツール(呼び名色々)を開く
+	\item 上タブのStorageをクリック
+	\item 左タブのCokkiesをクリック$ \xrightarrow{} $すぐ下のURLをクリック\\
+	右側になにか出ていたら次の節に移動
+	\item 開発者ツールは閉じずに適当にUsernameとPasswordを入力しLoginする
+\end{enumerate}
+
+\subsubsection{URLをデコードby CyberChef}
+\begin{enumerate}
+	\item 文字列を確認\\
+	Nameがsecret＿recipeとあることからflagだと分かる.\\
+	問題文的にもcookieになにかあることが推測できる.\\
+	しかし,このままではいけなさそう.picoCTF{}の形式ではない
+	\item デコード\\
+	文字列の中に％があるのでURLでエンコードされている可能性がある.\\
+	とりあえずCyberChefのMagicを使ってみる.\\
+	だめだったので次にURL Decodeを使ってみる.\\
+	デコードができた.やはりURLでエンコードされていた.\\
+\end{enumerate}
+
+\subsubsection{base64をデコードby CyberChef}
+\begin{enumerate}
+	\item とりあえず,CyberchefのMagicを使う.\\
+	base64でエンコードされていたことが分かる.\\
+	デコードされた結果が出ていて,それがflagだと分かる.
+\end{enumerate}
+
+
+\end{document}
