@@ -1,8 +1,8 @@
-\documentclass{jsarticle}
+\documentclass[dvipdfmx]{jsarticle}
 \setcounter{secnumdepth}{4}
-\usepackage[dvipdfmx]{hyperref}
+\usepackage{hyperref}
 \usepackage{amsmath}
-\usepackage[dvipdfmx]{graphicx}
+\usepackage{graphicx}
 \usepackage{placeins}
 \usepackage{listings}
 \usepackage{xcolor}
@@ -44,7 +44,7 @@ Cookie Monster has hidden his top-secret cookie recipe somewhere on his website.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=15cm,height=45mm]{~/Pictures/Screenshots/cookie.png}
+\includegraphics[width=15cm,height=45mm]{./Image/cookie.png}
 \caption{cookie}
 \end{center}
 \end{figure}
@@ -64,7 +64,7 @@ Cookie Monster has hidden his top-secret cookie recipe somewhere on his website.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=15cm,height=7cm]{~/Pictures/Screenshots/cyberchef_URL.png}
+\includegraphics[width=15cm,height=7cm]{./Image/cyberchef_URL.png}
 \caption{URL\_decode}
 \end{center}
 \end{figure}
@@ -79,7 +79,7 @@ Cookie Monster has hidden his top-secret cookie recipe somewhere on his website.
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=10cm,height=5cm]{~/Pictures/Screenshots/cyberchef_base64.png}
+\includegraphics[width=10cm,height=5cm]{./Image/cyberchef_base64.png}
 \caption{base64\_decode}
 \end{center}
 \end{figure}
@@ -143,14 +143,18 @@ A company stored a secret message on a server which got breached due to the admi
 	Enter the password for identified hash: 
 	\end{verbatim}
 	hashをとりあえず検索してみると
-	%\begin{figure}[h]
-	%\begin{center}
-	%\includegraphics[width=10cm,height=5cm]{~/Pictures/Screenshots/hash_serch.png}
-	%\caption{hash\_serch}
-	%\end{center}
-	%\end{figure}
-	%\FloatBarrier
+	\begin{figure}[h]
+	\begin{center}
+	\includegraphics[width=10cm,height=40mm]{./Image/hash_serch.png}
+	\caption{hash\_serch}
+	\end{center}
+	\end{figure}
+	\FloatBarrier
 	このようにMD5と書かれており,ついでにdecodeもできそうなのでやって,それを入力するとクリア
+	\item \texttt{次も同じように}
+	\item \texttt{SHA256}\\
+	検索しても出ない人が多いかもしれません.
+	しかし,\texttt{SHA256デコード}と調べると変換ツールが出ると思うので,そちらで行いましょう
 
 \end{enumerate}
 
