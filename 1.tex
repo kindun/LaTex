@@ -178,7 +178,8 @@ A digital ghost has breached my defenses, and my sensitive data has been stolen!
 	\item base64じゃねえか
 	でてきた文字列がbase64っぽいので,デコードする.
 	\begin{verbatim}
-	
+	tshark -r ../myNetworkTraffic.pcap -T fields -e frame.time -e tcp.segment_data | sort -k4 | awk '{printf($6)}' | xxd -p -r | base64 -d
+	�Ѓ]B?Z��picoCTF{1t_w4snt_th4t_34sy_tbh_4r_2e1ff063}�i�	
 	\end{verbatim}
 \end{enumerate}
 \section{おわりに}
