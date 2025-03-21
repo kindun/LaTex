@@ -164,36 +164,16 @@ A digital ghost has breached my defenses, and my sensitive data has been stolen!
 
 \subsection{解法}
 \begin{enumerate}
-	\item tsharkを使ってみる.(wiresharkのコマンドライン版)\\
+	\item \texttt{tsharkを使ってみる.(wiresharkのコマンドライン版)}\\
 	とりあえず,ファイルの中身を見てみる.
 	\lstinputlisting[language=bash,frame=none,numbers=none]{../tshark1.txt}
-	\item 時間に注目
+	\item \texttt{時間に注目}\\
 	問題文より,時間が重要そうなのでframe.time,そしてLen=でpayloadになにかあることが分かるので,それも表示してみる.\\
-	ついでに,時間についてsortを行う.	
-	$ tshark -r ../myNetworkTraffic.pcap -T fields -e frame.time -e tcp.segment_data | sort -k4
-	Mar  6, 2025 12:32:17.183957000 JST     6f6b4b544272383d
-	Mar  6, 2025 12:32:17.184407000 JST     7938382f7064413d
-	Mar  6, 2025 12:32:17.184651000 JST     5a44516b5033553d
-	Mar  6, 2025 12:32:17.184902000 JST     4d77624d5971513d
-	Mar  6, 2025 12:32:17.185135000 JST     4b695a502b75413d
-	Mar  6, 2025 12:32:17.185383000 JST     6d554b6c3471343d
-	Mar  6, 2025 12:32:17.185609000 JST     2b5256384e56593d
-	Mar  6, 2025 12:32:17.186056000 JST     5542635a5079593d
-	Mar  6, 2025 12:32:17.186332000 JST     554a64644e6a343d
-	Mar  6, 2025 12:32:17.186562000 JST     2b5448325269413d
-	Mar  6, 2025 12:32:17.186987000 JST     3677446f5438383d
-	Mar  6, 2025 12:32:17.187276000 JST     75316e376157673d
-	Mar  6, 2025 12:32:17.187506000 JST     6c7746703577303d
-	Mar  6, 2025 12:32:17.187738000 JST     42627a516731303d
-	Mar  6, 2025 12:32:17.187988000 JST     516a3961744d593d
-	Mar  6, 2025 12:32:17.188216000 JST     63476c6a62304e5552673d3d
-	Mar  6, 2025 12:32:17.188509000 JST     657a46305833633063773d3d
-	Mar  6, 2025 12:32:17.188750000 JST     626e52666447673064413d3d
-	Mar  6, 2025 12:32:17.189102000 JST     587a4d3063336c6664413d3d
-	Mar  6, 2025 12:32:17.189323000 JST     596d68664e484a664d673d3d
-	Mar  6, 2025 12:32:17.189547000 JST     5a54466d5a6a41324d773d3d
-	Mar  6, 2025 12:32:17.189791000 JST     66513d3d	
-
+	ついでに,時間についてsortを行う.\\
+	tcp.segment\_data はtcp.payloadと一緒
+	\lstinputlisting[language=bash,frame=none,numbers=none]{../sorted.txt}
+	\item payloadを16進数にする.
+	まず,planテキストに戻してから,16進数に直す.
 \end{enumerate}
 \section{おわりに}
 ご覧いただきありがとうございました.
