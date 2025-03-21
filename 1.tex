@@ -44,7 +44,7 @@ Cookie Monster has hidden his top-secret cookie recipe somewhere on his website.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=15cm,height=45mm]{./Image/cookie.png}
+\includegraphics[width=15cm,height=45mm]{../Image/cookie.png}
 \caption{cookie}
 \end{center}
 \end{figure}
@@ -64,7 +64,7 @@ Cookie Monster has hidden his top-secret cookie recipe somewhere on his website.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=15cm,height=7cm]{./Image/cyberchef_URL.png}
+\includegraphics[width=15cm,height=7cm]{../Image/cyberchef_URL.png}
 \caption{URL\_decode}
 \end{center}
 \end{figure}
@@ -79,7 +79,7 @@ Cookie Monster has hidden his top-secret cookie recipe somewhere on his website.
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=10cm,height=5cm]{./Image/cyberchef_base64.png}
+\includegraphics[width=10cm,height=5cm]{../Image/cyberchef_base64.png}
 \caption{base64\_decode}
 \end{center}
 \end{figure}
@@ -101,7 +101,7 @@ Additional details will be available after launching your challenge instance.
 	mainのアドレスが書いてあり,入力するとアドレスがジャンプするらしい
 	\item \textbf{とりあえず,プログラムをダウンロードし,見てみる(一応binaryファイルも)}
 	中身はこんな感じ
-	\lstinputlisting{vuln.c}
+	\lstinputlisting{../vuln.c}
 	見てみると.win関数を実行できればflag.txtが見れることが分かる.
 	\item \textbf{44,47,48行のプログラムに注目}
 	\begin{lstlisting}[language=C]
@@ -145,7 +145,7 @@ A company stored a secret message on a server which got breached due to the admi
 	hashをとりあえず検索してみると
 	\begin{figure}[h]
 	\begin{center}
-	\includegraphics[width=10cm,height=40mm]{./Image/hash_serch.png}
+	\includegraphics[width=10cm,height=40mm]{../Image/hash_serch.png}
 	\caption{hash\_serch}
 	\end{center}
 	\end{figure}
@@ -166,32 +166,14 @@ A digital ghost has breached my defenses, and my sensitive data has been stolen!
 \begin{enumerate}
 	\item tsharkを使ってみる.(wiresharkのコマンドライン版)\\
 	とりあえず,ファイルの中身を見てみる.
-	\begin{verbatim}	
-	$ tshark -r myNetworkTraffic.pcap
-	1   0.000000  192.168.0.2 → 192.168.1.2  TCP 48 20 → 80 [SYN] Seq=0 Win=8192 Len=8 [TCP segment of a reassembled PDU]
-	2   0.001763  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Out-Of-Order] [Illegal Segments]
-	3   0.002804  192.168.0.2 → 192.168.1.2  TCP 44 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=4
-	4  -0.000425  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	5   0.002560  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=12
-	6  -0.001852  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	7  -0.001604  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	8   0.000751  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	9   0.002115  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=12
-	0   0.001522  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=12
-	11   0.001001  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	12   0.001229  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=12
-	13  -0.000655  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	14   0.000289  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	15  -0.003030  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	16  -0.002336  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	17  -0.000931  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	18  -0.002580  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	19  -0.002085  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	20  -0.001378  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
-	21   0.002336  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=12
-	22   0.000519  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8	
+	\lstinputlisting[language=bash,frame=none,numbers=none]{../tshark1.txt}
+	\item 時間に注目
+	問題文より,時間が重要そうなのでframe.time,そしてLen=でpayloadになにかあることが分かるので,それも表示してみる.\\
+	ついでに,時間についてsortを行う.	
+	
+	
+	
 
-	\end{verbatim}
 \end{enumerate}
 \section{おわりに}
 ご覧いただきありがとうございました.
