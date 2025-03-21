@@ -168,7 +168,29 @@ A digital ghost has breached my defenses, and my sensitive data has been stolen!
 	とりあえず,ファイルの中身を見てみる.
 	\begin{verbatim}	
 	$ tshark -r myNetworkTraffic.pcap
-	
+	1   0.000000  192.168.0.2 → 192.168.1.2  TCP 48 20 → 80 [SYN] Seq=0 Win=8192 Len=8 [TCP segment of a reassembled PDU]
+	2   0.001763  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Out-Of-Order] [Illegal Segments]
+	3   0.002804  192.168.0.2 → 192.168.1.2  TCP 44 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=4
+	4  -0.000425  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	5   0.002560  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=12
+	6  -0.001852  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	7  -0.001604  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	8   0.000751  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	9   0.002115  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=12
+	0   0.001522  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=12
+	11   0.001001  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	12   0.001229  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=12
+	13  -0.000655  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	14   0.000289  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	15  -0.003030  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	16  -0.002336  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	17  -0.000931  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	18  -0.002580  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	19  -0.002085  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	20  -0.001378  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8
+	21   0.002336  192.168.0.2 → 192.168.1.2  TCP 52 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=12
+	22   0.000519  192.168.0.2 → 192.168.1.2  TCP 48 [TCP Retransmission] 20 → 80 [SYN] Seq=0 Win=8192 Len=8	
+
 	\end{verbatim}
 \end{enumerate}
 \section{おわりに}
