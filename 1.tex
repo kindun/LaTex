@@ -6,6 +6,7 @@
 \usepackage{placeins}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage{tcolorbox}
 
 \lstset{
 	language=C,
@@ -172,15 +173,36 @@ A digital ghost has breached my defenses, and my sensitive data has been stolen!
 	ついでに,時間についてsortを行う.\\
 	tcp.segment\_data はtcp.payloadと一緒
 	\lstinputlisting[language=bash,frame=none,numbers=none]{../sorted.txt}
-	\item payloadを16進数にする.
+	\item payloadを16進数にする.\\
 	まず,planテキストに戻してから,16進数に直す.
+	\$6は6列目という意味
 	\lstinputlisting[language=bash,frame=none,numbers=none]{../base64.txt}
-	\item base64じゃねえか
+	\item base64じゃねえか\\
 	でてきた文字列がbase64っぽいので,デコードする.
 	\begin{verbatim}
-	tshark -r ../myNetworkTraffic.pcap -T fields -e frame.time -e tcp.segment_data | sort -k4 | awk '{printf($6)}' | xxd -p -r | base64 -d
-	�Ѓ]B?Z��picoCTF{1t_w4snt_th4t_34sy_tbh_4r_2e1ff063}�i�	
+	tshark -r ../myNetworkTraffic.pcap -T fields -e frame.time -e tcp.segment_data 
+| sort -k4 | awk '{printf($6)}' | xxd -p -r | base64 -d
+	�Ѓ]B?Z��picoCTF{1t_w4snt_th4t_34sy_tbh
+_4r_2e1ff063}�i�	
 	\end{verbatim}
+	無事にflagが出ました！！！！！！！
+	\item 補足\\
+	\begin{tcolorbox}[width=10cm,colframe=gray!80!white, colback=gray!5!white, coltitle=black]
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{cmd} & \textbf{オプション} & \textbf{説明}\\
+		\hline
+		tshark & -r & ファイルの読み込み\\
+		〃 & -T & formatの指定\\
+		〃 & -e & fieldの選択\\
+		sort & -kN & N列目を基準にsort(標準は昇順)\\
+		xxd & -p & plainテキストに変換\\
+		〃 & -r & 16進数に変換（戻す）\\
+		base64 & -d & decode\\
+		\hline
+	\end{tabular}
+	\end{tcolorbox}
+	
 \end{enumerate}
 \section{おわりに}
 ご覧いただきありがとうございました.
